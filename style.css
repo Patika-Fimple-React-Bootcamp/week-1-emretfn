@@ -1,0 +1,166 @@
+/* CSS Variables */
+:root {
+  --light-grey: #f0f0f0;
+  --black: #222831;
+  --primary: #213555;
+  --border: #e2e8f0;
+
+  /* Text variables */
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+
+  /* Spacing variables */
+  --spacing-xxs: 0.375rem;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.25rem;
+  --spacing-xl: 1.5rem;
+
+  /* radius variables */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* shadow variables */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--light-grey);
+  color: var(--black);
+}
+
+.main {
+  display: flex;
+  width: 100%;
+  height: 100dvh;
+  padding: var(--spacing-xl);
+  align-items: flex-start;
+  justify-content: center;
+  column-gap: var(--spacing-xl);
+}
+
+.title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  background-color: white;
+  box-shadow: var(--shadow-sm);
+  flex: 1;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--spacing-xxs);
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  column-gap: var(--spacing-xs);
+  font-size: var(--text-sm);
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--spacing-md);
+  background-color: white;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  flex: 2;
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+}
+
+.listContainer {
+  /* It should be display: none because it is loading at the beginning */
+  display: none;
+  flex-direction: column;
+  row-gap: var(--spacing-sm);
+}
+
+.listItem {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.listItem > label {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: var(--spacing-md);
+  column-gap: var(--spacing-xs);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.listItem > label:hover {
+  background-color: var(--light-grey);
+}
+.listItem > label > input:checked ~ span {
+  text-decoration: line-through;
+}
+
+/* Input styling */
+input:not([type="checkbox"]) {
+  width: 100%;
+  height: 2.5rem;
+  font-size: var(--text-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  outline: none;
+}
+
+input::placeholder {
+  color: #64748b;
+}
+
+/* Checkbox input style */
+input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  outline: none;
+}
+
+/* Shared Button Style */
+.btn {
+  width: 100%;
+  height: 2.5rem;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius-md);
+  background-color: var(--primary);
+  color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}

@@ -12,9 +12,27 @@
     />
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
+    <script src="./index.js" defer></script>
   </head>
   <body>
-   
+    <main class="main">
+      <form class="formContainer">
+        <h2 class="title">Add a todo</h2>
+        <div class="formField">
+          <label for="title">Todo</label>
+          <input type="text" name="title" placeholder="Add a new todo..." id="title" />
+        </div>
+        <label class="checkboxLabel">
+          <input type="checkbox" name="completed" />
+          <span>is it completed?</span>
+        </label>
+        <button class="btn">Add</button>
+      </form>
+      <div class="contentContainer">
+        <h2 class="title">Todo List</h2>
+        <p class="loading">Loading...</p>
+        <ul class="listContainer"></ul>
+      </div>
     </main>
   </body>
 </html>
