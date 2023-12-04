@@ -1,9 +1,9 @@
 /* CSS Variables */
 :root {
-  --light-grey: #f0f0f0;
-  --black: #222831;
-  --primary: #213555;
-  --border: #e2e8f0;
+  --light-grey: #f4f6f8; /* Light grey for backgrounds */
+  --black: #172b4d; /* Dark blue for text */
+  --primary: #0052cc; /* Bright blue for primary actions */
+  --border: #dfe1e6; /* Light grey for borders */
 
   /* Text variables */
   --text-sm: 0.875rem;
@@ -32,6 +32,7 @@
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -54,11 +55,7 @@ body {
   column-gap: var(--spacing-xl);
 }
 
-.title {
-  font-size: var(--text-2xl);
-  font-weight: 700;
-}
-
+/* FORM AND FORM ELEMENTS */
 .formContainer {
   display: flex;
   flex-direction: column;
@@ -83,6 +80,7 @@ body {
   font-size: var(--text-sm);
 }
 
+/* CONTENT CONTAINER */
 .contentContainer {
   display: flex;
   flex-direction: column;
@@ -95,11 +93,14 @@ body {
   height: 100%;
 }
 
+/* LIST CONTAINER & LIST ITEM */
 .listContainer {
   /* It should be display: none because it is loading at the beginning */
   display: none;
   flex-direction: column;
   row-gap: var(--spacing-sm);
+  flex-grow: 1;
+  overflow-y: auto;
 }
 
 .listItem {
@@ -117,14 +118,34 @@ body {
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
+
+.listItem > label > span {
+  flex-grow: 1;
+  font-weight: 500;
+}
 .listItem > label:hover {
   background-color: var(--light-grey);
 }
-.listItem > label > input:checked ~ span {
+.listItem > label > input:checked + span {
   text-decoration: line-through;
+  color: var(--primary);
 }
 
-/* Input styling */
+/* LOADING */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.loading > .loaderIcon {
+  width: 2rem;
+  height: 2rem;
+  animation: spin 1s linear infinite;
+}
+
+/* INPUT STYLES */
 input:not([type="checkbox"]) {
   width: 100%;
   height: 2.5rem;
@@ -139,7 +160,7 @@ input::placeholder {
   color: #64748b;
 }
 
-/* Checkbox input style */
+/* CHECKBOX STYLES */
 input[type="checkbox"] {
   width: 1rem;
   height: 1rem;
@@ -148,7 +169,7 @@ input[type="checkbox"] {
   outline: none;
 }
 
-/* Shared Button Style */
+/* BUTTON STYLES */
 .btn {
   width: 100%;
   height: 2.5rem;
@@ -163,4 +184,37 @@ input[type="checkbox"] {
 
 .btn:hover {
   opacity: 0.9;
+  background-color: var(--black);
+}
+
+/* TITLE STYLES */
+.title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+}
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 1024px) {
+  .main {
+    flex-direction: column;
+    row-gap: var(--spacing-xl);
+  }
+
+  .formContainer {
+    width: 100%;
+    flex-grow: 0;
+  }
+
+  .contentContainer {
+    width: 100%;
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+}
+
+/* Animation for the loading icon */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
